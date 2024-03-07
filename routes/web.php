@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user/{name}', [UserController::class, 'index']);
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/user/{user}', [UserController::class, 'details']);
