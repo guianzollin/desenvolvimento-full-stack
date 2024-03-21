@@ -18,3 +18,5 @@ Route::redirect('/', '/users');
 
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/user/{user}', [UserController::class, 'details']);
+Route::get('/users/create', [UserController::class, 'create']);
+Route::post('/users/store', [UserController::class, 'store']);

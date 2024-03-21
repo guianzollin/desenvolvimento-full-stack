@@ -4,6 +4,14 @@
  
 @section('content')
 <div>
+    <div class="d-flex justify-content-end">
+        <a
+            class="btn btn-primary"
+            href="/users/create"
+        >
+            novo usuário
+        </a>
+    </div>
     <table class="table">
     <thead>
         <tr>
@@ -25,7 +33,9 @@
         <td>
             {{ $user->email }}
         </td>
-        <td>
+        <td
+            class="d-flex justify-content-end"
+        >
             <a
                 class="btn btn-primary"
                 href="/user/{{ $user->id }}"
