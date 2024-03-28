@@ -70,4 +70,16 @@ class UserController extends Controller
  
         return redirect('/users');
     }
+
+    /**
+     * Delete.
+     */
+    public function delete(User $user): RedirectResponse
+    {
+        // Validate the request...
+ 
+        $user->delete();
+ 
+        return redirect('/users');
+    }
 }

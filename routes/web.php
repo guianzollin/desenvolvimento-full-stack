@@ -21,3 +21,4 @@ Route::get('/user/{user}', [UserController::class, 'details']);
 Route::get('/users/create', [UserController::class, 'create']);
 Route::post('/users/store', [UserController::class, 'store']);
 Route::put('/user/{user}', [UserController::class, 'update']);
+Route::delete('/user/{user}', [UserController::class, 'delete']);

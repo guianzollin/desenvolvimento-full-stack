@@ -42,6 +42,11 @@
             >
                 Detalhes
             </a>
+            <form method="POST" action="/user/{{ $user->id }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Excluir</button>
+            </form>
         </td>
         </tr>
         @endforeach
