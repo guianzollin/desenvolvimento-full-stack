@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -36,5 +37,22 @@ class UserController extends Controller
     public function create(): View
     {
         return view('user.create');
+    }
+
+    /**
+     * Store a new user in the database.
+     */
+    public function store(Request $request): RedirectResponse
+    {
+        // Validate the request...
+ 
+        $user = new User;
+ 
+        $user->name = $request->name;
+        $user->email = $request->email;
+ 
+        $user->save();
+ 
+        return redirect('/users');
     }
 }
