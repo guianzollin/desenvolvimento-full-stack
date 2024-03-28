@@ -1,6 +1,6 @@
 @extends('components.layout')
  
-@section('title', 'Detalhes do usuário')
+@section('title', 'Novo usuário')
  
 @section('content')
 <div>
