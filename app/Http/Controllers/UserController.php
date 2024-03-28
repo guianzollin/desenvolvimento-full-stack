@@ -55,4 +55,19 @@ class UserController extends Controller
  
         return redirect('/users');
     }
+
+    /**
+     * Update.
+     */
+    public function update(Request $request, User $user): RedirectResponse
+    {
+        // Validate the request...
+ 
+        $user->name = $request->name;
+        $user->email = $request->email;
+ 
+        $user->save();
+ 
+        return redirect('/users');
+    }
 }
