@@ -36,9 +36,9 @@
    php artisan migrate
    ```
 
-6. **Instalar as chaves de encriptação do Passport e criar os clients de OAuth:**
+6. **Instalar o Laravel Passport:**
    ```sh
-   php artisan passport:install
+   php artisan install:api --passport
    ```
 
 7. **Inicializar o servidor de desenvolvimento:**
