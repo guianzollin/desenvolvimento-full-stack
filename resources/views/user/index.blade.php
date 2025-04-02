@@ -19,15 +19,17 @@
       </tr>
     </thead>
     <tbody class="text-gray-800">
+      @foreach ($users as $user)
       <tr class="hover:bg-gray-50">
-        <td class="px-6 py-4 border-b">Guilherme</td>
-        <td class="px-6 py-4 border-b">guilherme.anzollin@unoesc.edu.br</td>
+        <td class="px-6 py-4 border-b">{{ $user->name }}</td>
+        <td class="px-6 py-4 border-b">{{ $user->email }}</td>
         <td class="px-6 py-4 border-b">
-          <a href="/user/1" class="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+          <a href="/user/{{ $user->id }}" class="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
             detalhes
           </a>
         </td>
       </tr>
+      @endforeach
     </tbody>
   </table>
 

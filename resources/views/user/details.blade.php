@@ -4,40 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do usuário</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>
+<body class="p-8 font-sans bg-gray-50">
+    <h1 class="text-3xl font-bold mb-6">
         Detalhes do usuário
     </h1>
-    <form action="/user/{{ $user->id }}" method="POST">
+
+    <!-- Formulário de edição -->
+    <form action="/user/{{ $user->id }}" method="POST" class="inline">
         @method('PUT')
         @csrf
-        <p>
-            Nome: 
-            <input
-                type="text"
-                name="name"
-                value="{{ $user->name }}"
-            >
-        </p>
-        <p>
-            E-mail:
-            <input
-                type="text"
-                name="email"
-                value="{{ $user->email }}"
-            >
-        </p>
-        <input type="submit" value="Salvar">
+
+        <!-- Campos -->
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+            <div class="sm:col-span-4">
+                <label for="name" class="block text-sm font-medium text-gray-900">Nome</label>
+                <div class="mt-2">
+                    <input type="text" name="name" value="{{ $user->name }}" class="block w-full rounded-md border border-gray-300 py-1.5 pl-3 text-base text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none sm:text-sm">
+                </div>
+            </div>
+
+            <div class="sm:col-span-4">
+                <label for="email" class="block text-sm font-medium text-gray-900">E-mail</label>
+                <div class="mt-2">
+                    <input type="text" name="email" value="{{ $user->email }}" class="block w-full rounded-md border border-gray-300 py-1.5 pl-3 text-base text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none sm:text-sm">
+                </div>
+            </div>
+        </div>
+
+        <!-- Botões lado a lado -->
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+            <button type="submit" class="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
+                Salvar
+            </button>
     </form>
 
-    <form action="/user/{{ $user->id }}" method="POST">
+    <form action="/user/{{ $user->id }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este usuário?')" class="inline">
         @method('DELETE')
         @csrf
-        <input type="submit" value="Excluir">
+        <button type="submit" class="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition">
+            Excluir
+        </button>
     </form>
-    <a href="/users">
+
+    <a href="/users" class="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition flex items-center justify-center">
         Voltar
     </a>
+    </div>
+
 </body>
 </html>
