@@ -1,67 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=h1, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <style>
-        .button {
-            margin: 10px;
-            padding: 10px;
-            border: 1px solid black;
-        }
-
-        th, td {
-            margin: 10px;
-            padding: 10px;
-            text-align: left;
-        }
-
-        table {
-            margin: 20px 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Usuários</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1
-        class="text-3xl font-bold"
-    >
-        Users
-    </h1>
+<body class="p-8 font-sans bg-gray-50">
 
-    <table class="table-auto">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th></th>
-        </tr>
+  <h1 class="text-3xl font-bold mb-6">Users</h1>
+
+  <table class="table-auto w-full bg-white border border-gray-300 shadow-sm rounded-lg">
+    <thead class="bg-gray-100 text-gray-700">
+      <tr>
+        <th class="px-6 py-3 text-left border-b">Nome</th>
+        <th class="px-6 py-3 text-left border-b">E-mail</th>
+        <th class="px-6 py-3 text-left border-b">Ação</th>
+      </tr>
     </thead>
-    <tbody>
-        @foreach ($users as $user)
-        <tr>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->email }}</td>
-            <td>
-                <a 
-                    class="button"
-                    href="/user/{{ $user->id }}"
-                >
-                    detalhes
-                </a>
-            </td>
-        </tr>
-        @endforeach
+    <tbody class="text-gray-800">
+      <tr class="hover:bg-gray-50">
+        <td class="px-6 py-4 border-b">Guilherme</td>
+        <td class="px-6 py-4 border-b">guilherme.anzollin@unoesc.edu.br</td>
+        <td class="px-6 py-4 border-b">
+          <a href="/user/1" class="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+            detalhes
+          </a>
+        </td>
+      </tr>
     </tbody>
-    </table>
+  </table>
 
-    <a
-        class="button"
-        href="/users/create"
-    >
-        Incluir usuário
-    </a>
+  <a href="/users/create" class="mt-6 inline-block px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
+    Incluir usuário
+  </a>
+
 </body>
 </html>
